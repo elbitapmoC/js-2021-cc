@@ -1,42 +1,56 @@
-// Primitive Data Types
-// --------------------
-const avatar = 'Johnny Applesed'
-console.log(typeof avatar); // String
-console.log(typeof 1)// Number
-console.log(typeof true)// Boolean
-console.log(typeof null)// Null
-console.log(typeof x) //undefined
-console.log(typeof Symbol()) //Symbol
-// --------------------
+let val;
 
-// Reference Data Types - These are being accessed from memory AS a reference
-// --------------------
+// TO STRING
+// ---------
+// Num -> String
+// val = String(555);
+// val = String(4 + 4);
+// To string(method)
+// val = (555).toString();
+// val = (4 + 4).toString();
 
-// Array
-const flavors = [
-  'orange', 'peach', 'cherry', 'raspberry', 'kiwi', 'watermelon'
-]
+// Bool to String
+// val = String(true);
+// To string(method)
+// val = (true).toString();
 
-// Object literal
-const person = {
-  job: 'Web Master',
-  hobbies: [
-    '3D Animation',
-    'Drawing',
-    'Animation',
-    'Motion',
-    'Interactive Design',
-    'Reading',
-    'Guitar',
-    'Piano',
-    'App Dev',
-    'Teaching'
-  ],
-  age: 20,
-  state: 'Washington'
-}
+// Date to String
+// val = String(new Date());
+// To string(method)
+// val = (new Date()).toString();
 
-console.log(typeof person)
-console.log(Date());
-const y = new Date();
-console.log(typeof y);
+// Array to string
+// val = String(['guava', 'mint', 'baby bananas', 'mango'])
+// To string(method)
+// val = (['guava', 'mint', 'baby bananas', 'mango']).toString();
+
+// Bool to String
+// val = String(true);
+// To string(method)
+// val = (true).toString();
+
+// TO NUMBER
+// ---------
+// val = Number('5');
+// val = Number(true);
+// val = Number(null);
+// val = Number('Aloha') //NaN
+// val = Number(['1', '2', '3'])
+
+// // val = parseInt('123.654');
+// val = parseFloat('28.25')
+
+// Output
+// console.log(val);
+// console.log(typeof val)
+// console.log(val.length)
+// console.log(val.toFixed(2))
+
+const val1 = String('1');
+const val2 = 3;
+let sum = val1 + val2;
+console.log(sum)
+console.log(Number(val1) + val2)
+sum = Number(val1) + val2;
+console.log(typeof sum)
+
