@@ -22,6 +22,6 @@ val = Math.min(948, 54, 63, 5, 7, 878, 54, 57, 23, 24, 5, 4, -1);
 val = Math.max(948, 54, 63, 5, 7, 878, 54, 57, 23, 24, 5, 4, -1);
 val = Math.random(); // Generates a random number from 0 to 1 (for example: 0.2858934643822625)
 val = Math.random() * 20; // Generates a random number from 0 to 19
-val = Math.round(Math.random() * 151); // Generates a random number from 0 to 19
+val = Math.round(Math.random() * 150 + 1); // Generates a random number from 1 to 150
 
 console.log(val)
