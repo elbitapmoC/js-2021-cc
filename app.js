@@ -1,27 +1,59 @@
-const num1 = 100;
-const num2 = 50;
+const fN = 'Ace';
+const lN = 'Bandage';
+const str = 'ThermoFlask... Get yourself ready we\'re about to enter into the wilderness!';
 let val;
 
-// Simple math
-val = num1 + num2;
-val = num1 - num2;
-val = num1 * num2;
-val = num1 / num2;
-val = num1 % num2; // Modulus, returns the remaining number.
+// Concatenation 
+val = fN + ' ' + lN;
 
-// Math Object
-val = Math.PI;
-val = Math.round(2.5); // 3
-val = Math.round(2.4); // 2
-val = Math.ceil(2.1); // 3 - Rounds up to the next largest integer
-val = Math.floor(2.1) // 2 - Rounds down
-val = Math.sqrt(16); // 4
-val = Math.abs(-444); // 444
-val = Math.pow(7, 3) // (7*7*7) = 343
-val = Math.min(948, 54, 63, 5, 7, 878, 54, 57, 23, 24, 5, 4, -1);
-val = Math.max(948, 54, 63, 5, 7, 878, 54, 57, 23, 24, 5, 4, -1);
-val = Math.random(); // Generates a random number from 0 to 1 (for example: 0.2858934643822625)
-val = Math.random() * 20; // Generates a random number from 0 to 19
-val = Math.round(Math.random() * 150 + 1); // Generates a random number from 1 to 150
+// Append
+val = 'Hunter ';
+val += 'X Hunter'
+
+// Escaping
+val = '"Peace & Safety"'
+
+// Length
+val = val.length;
+
+// Concat
+val = fN.concat(' ', lN);
+
+// toUpper
+val = fN.toUpperCase();
+
+// toLower
+val = fN.toLowerCase();
+
+// Get a specific portion of our string.
+val = fN[0]; // A
+
+// indexOf()
+val = fN.indexOf('e'); // 2
+
+// lastIndexOf()
+val = fN.lastIndexOf('A'); // 0
+
+// charAt()
+val = lN.charAt('3'); // d
+// Get last character
+val = lN.charAt(lN.length - 1);
+
+// substring() 
+val = lN.substring(0, 3) // Ban
+
+// slice() - mostly used w/ Arrays.
+// The special thing about slice is that we can use NEGATIVE numbers.
+// val = lN.slice(0, 3) // Ban
+val = lN.slice(-3) // When using negative it starts from the back, gets the last 3 characters (age)
+
+// split() - can split a string into an array
+// val = console.table(str.split(' ')); // [ "ThermoFlask...", "Get", "yourself", "ready", "we're", "about", "to", "enter", "into", "the", "wild" ]
+
+// replace()
+// val = fN.replace('Ace', 'Focusrite') // Focusrite
+
+// includes() -  check to see if the string includes what you're searching for
+val = str.includes('wild'); // True
 
 console.log(val)
