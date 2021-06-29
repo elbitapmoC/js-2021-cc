@@ -1,90 +1,41 @@
-// FOR LOOP
-// for (let index = 0; index < 100; index++) {
-//   if (index === 1) {
-//     console.log('Strive for de best!')
-//     continue;
-//   }
-//   if (index === 28)
-//     console.log(index);
-// }
+// WINDOW METHODS / OBJECTS / PROPERTIES
 
-// WHILE LOOP
-// let i = 0;
-// while (i < 10) {
-//   console.log(`While:${i}`);
-//   i++;
-// }
+// Alert
+// alert('Tooda-looo!');
 
-// DO WHILE LOOP
-// i = 0;
-// do {
-//   console.log(`Do While: ${i}`);
-//   i++;
-// }
-// while (i < 10);
+// Prompt
+// prompt('We noticed you slowing down, would you like to take a break?');
 
-// CARS
-electricCars = ['Model Y', 'Mach-E', 'e-Tron', 'Polestar 2', 'I-PACE', 'Kona'];
+// Confirm
+// if (confirm('We noticed you slowing down, would you like to take a break?')) {
+//   console.log('Lunch Time!');
+// } else console.log('Let me know when you\'re ready..')
 
-// FOREACH - This can take in 3 arguments, (iterator, index, array)
-// array being the entire variable electricCars from above that stores our collection of data.
-electricCars.forEach((car, i) => {
-  console.log(`Index: #${i} ${car}`);
-});
+let val;
 
-// MAP
+// Outer Height & Width
+// console.log(`Window OUTER Height: ${window.outerHeight}`);
+// console.log(`Window OUTER Weight: ${window.outerWidth}`)
 
-// Create an array of objects
-const books = [
-  {
-    id: 1,
-    book: 'Huckleberry Fin'
-  }, {
-    id: 2,
-    book: 'Huckleberry Fan'
-  }, {
-    id: 3,
-    book: 'Huckleberry Fon'
-  }, {
-    id: 4,
-    book: 'Huckleberry Fen'
-  }, {
-    id: 5,
-    book: 'Huckleberry Fixin'
-  },
-]
+// Inner Height & Width
+// console.log(`Window INNER Height: ${window.innerHeight}`);
+// console.log(`Window INNER Weight: ${window.innerWidth}`)
 
-// store returned id's from array inside a variable.
-const ids = books.map((book) => {
-  return book.id;
-})
+// Scroll Points
+// val = window.scrollY;
 
-// print out the ids.
-console.log(ids);
+// Location Object
+val = window.location;  //href, port, host, etc.
 
-// Checks to see if an object is empty or not.
-function isEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
+// History Object
+// val = window.history.go(-2); // Takes users back 2 pages.
+val = window.history;
 
-const foundation = {
-  GEN: true,
-  EXO: false,
-  LEV: false,
-  NUM: false,
-  DEU: false
-}
-let unfinished = {};
+// Navigator Object
+val = window.navigator
+// platform
+// appCodeName
+// clipboard
+// and so much more.
 
-for (const book in foundation) {
-  if (foundation[book] === true) console.log('Good stuff!');
-  else unfinished[book] = foundation[book];
-}
-// If the object passed (unfinished) is NOT empty, then user get's message to keep on going.
-if (!isEmpty(unfinished)) {
-  console.log('Keep Studying, our foundation is crucial.');
-}
-
-for (const x in unfinished) {
-  console.log(x)
-}
+console.log(val)
