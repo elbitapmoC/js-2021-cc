@@ -1,64 +1,90 @@
-// --------------------
-// FUNCTION DECLARATIONS
-// --------------------
-function getDate() {
-  switch (new Date().getDay()) {
-    case 0:
-      return 'SUN';
-    case 1:
-      return 'MON';
-    case 2:
-      return 'TUE';
-    case 3:
-      return 'WED';
-    case 4:
-      return 'THUR';
-    case 5:
-      return 'Day of Prep | FRI';
-    default:
-      return 'Shabbat | SAT';
-  }
-}
+// FOR LOOP
+// for (let index = 0; index < 100; index++) {
+//   if (index === 1) {
+//     console.log('Strive for de best!')
+//     continue;
+//   }
+//   if (index === 28)
+//     console.log(index);
+// }
 
-// Johnny and Appleseed are default values.
-function greet(fN = 'Johnny', lN = 'Appleseed') {
-  return `Hey there ${fN} ${lN}`;
-}
-// console.log(greet('Chicken', 'Noodle'))
+// WHILE LOOP
+// let i = 0;
+// while (i < 10) {
+//   console.log(`While:${i}`);
+//   i++;
+// }
 
-// --------------------
-// FUNCTION EXPRESSIONS
-// --------------------
+// DO WHILE LOOP
+// i = 0;
+// do {
+//   console.log(`Do While: ${i}`);
+//   i++;
+// }
+// while (i < 10);
 
-let timesEight = function (x) {
-  return x * 8;
-}
-// console.log(timesEight(8));
+// CARS
+electricCars = ['Model Y', 'Mach-E', 'e-Tron', 'Polestar 2', 'I-PACE', 'Kona'];
 
-// IFFE - Immediately Invoked Function Expression
-// ((name) => {
-//   console.log(name)
-// })('1st Poohdie'); // w/o expression
+// FOREACH - This can take in 3 arguments, (iterator, index, array)
+// array being the entire variable electricCars from above that stores our collection of data.
+electricCars.forEach((car, i) => {
+  console.log(`Index: #${i} ${car}`);
+});
 
-// ((name) => {
-//   console.log(name)
-// })('2nd Poohdie'); // w/ expression
+// MAP
 
-// --------------------
-// PROPERTY METHODS
-// --------------------
-methodsToUse = {
-  add: (x, y) => {
-    return (x + y)
+// Create an array of objects
+const books = [
+  {
+    id: 1,
+    book: 'Huckleberry Fin'
+  }, {
+    id: 2,
+    book: 'Huckleberry Fan'
+  }, {
+    id: 3,
+    book: 'Huckleberry Fon'
+  }, {
+    id: 4,
+    book: 'Huckleberry Fen'
+  }, {
+    id: 5,
+    book: 'Huckleberry Fixin'
   },
-  sub: (x, y) => {
-    return (x + y)
-  }
+]
+
+// store returned id's from array inside a variable.
+const ids = books.map((book) => {
+  return book.id;
+})
+
+// print out the ids.
+console.log(ids);
+
+// Checks to see if an object is empty or not.
+function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
 }
 
-//Adds property method to our methodsToUse object
-methodsToUse.delete = function () {
-  console.log('delete delete delete')
-};
+const foundation = {
+  GEN: true,
+  EXO: false,
+  LEV: false,
+  NUM: false,
+  DEU: false
+}
+let unfinished = {};
 
-console.log(methodsToUse);
+for (const book in foundation) {
+  if (foundation[book] === true) console.log('Good stuff!');
+  else unfinished[book] = foundation[book];
+}
+// If the object passed (unfinished) is NOT empty, then user get's message to keep on going.
+if (!isEmpty(unfinished)) {
+  console.log('Keep Studying, our foundation is crucial.');
+}
+
+for (const x in unfinished) {
+  console.log(x)
+}
