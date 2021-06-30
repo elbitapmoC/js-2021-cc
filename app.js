@@ -1,41 +1,66 @@
-// WINDOW METHODS / OBJECTS / PROPERTIES
-
-// Alert
-// alert('Tooda-looo!');
-
-// Prompt
-// prompt('We noticed you slowing down, would you like to take a break?');
-
-// Confirm
-// if (confirm('We noticed you slowing down, would you like to take a break?')) {
-//   console.log('Lunch Time!');
-// } else console.log('Let me know when you\'re ready..')
-
 let val;
 
-// Outer Height & Width
-// console.log(`Window OUTER Height: ${window.outerHeight}`);
-// console.log(`Window OUTER Weight: ${window.outerWidth}`)
+// What's in the head?
+val = document.head;
 
-// Inner Height & Width
-// console.log(`Window INNER Height: ${window.innerHeight}`);
-// console.log(`Window INNER Weight: ${window.innerWidth}`)
+// What doctype is it?
+val = document.doctype;
 
-// Scroll Points
-// val = window.scrollY;
+// Get domain
+val = document.domain;
 
-// Location Object
-val = window.location;  //href, port, host, etc.
+// Get URL
+val = document.URL;
 
-// History Object
-// val = window.history.go(-2); // Takes users back 2 pages.
-val = window.history;
+// Get charset
+val = document.charset;
 
-// Navigator Object
-val = window.navigator
-// platform
-// appCodeName
-// clipboard
-// and so much more.
+// Get content type
+val = document.contentType;
 
-console.log(val)
+// Checkout the document
+val = document;
+
+// Checkout all elements within the document
+val = document.all;
+
+// Checkout a specific element within all the document
+val = document.all[5]; // materialize
+
+// Get the length of the elements within the document
+val = document.all.length
+
+// What's in the body?
+val = document.body;
+
+val = document.forms;
+val = document.forms[0];
+val = document.forms[0].id; //task-form
+val = document.forms[0].method; // GET || POST
+val = document.forms[0].action; // Forms usually have an action, the action will appear here.
+
+val = document.links;
+
+val = document.links[5];
+val = document.links[0].id;
+
+val = document.links[5].className;
+val = document.links[5].classList;
+val = document.links[5].classList[0];
+// val = document.links.length; // 6
+
+val = document.images; // 0
+
+val = document.scripts;
+// val = document.scripts.length;
+// val = document.scripts[2].src;
+// val = document.scripts[2].getAttribute('src');
+
+let scripts = document.scripts; // HTML Collection
+scriptsArr = Array.from(scripts); //Converts HTML Collection to an Array
+// Print out the source for each element within the scriptsArr
+scriptsArr.forEach((script) => {
+  console.log(script.getAttribute('src'));
+});
+
+// console.log(val);
