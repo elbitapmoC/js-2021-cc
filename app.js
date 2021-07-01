@@ -1,31 +1,45 @@
-let val;
-const taskTitle = document.getElementById('task-title');
+let items;
+// items = document.getElementsByClassName('collection-item');
+// console.log(items);
+// console.log(items[0])
 
-// Getting Things From the Element
-val = taskTitle;
-val = taskTitle.id; // task-title
-// val = document.getElementById('task-title').className; //empty
+// items[0].style.backgroundColor = 'pink';
+// items[3].textContent = 'pink';
 
-// Change styling of an Element
-taskTitle.style.color = 'lavender';
-taskTitle.style.backgroundColor = 'black';
-taskTitle.style.padding = '5px';
-taskTitle.style.display = 'inline-block';
+// const listOfItems = document.querySelector('ul').getElementsByClassName('collection-item'); // ul collection-item
+// console.log(listOfItems)
 
-// Change content
-taskTitle.textContent = 'Text Content';
-taskTitle.innerText = 'Inner Text..'
-taskTitle.innerHTML = '<h6>innerHTML</h6>'
+// gEBTN returns a live node list.
+// can be useful(you can query once, store the value, and have it update as the DOM changes)
+// Does same as above (line 2-4)
+let lis = document.getElementsByTagName('li');
+// console.log(lis);
+// console.log(lis[0]);
 
-// Query Selector - If there's more than 1, the first will be returned.
-val = document.querySelector('.collection');
-val = document.querySelector('#task-form');
+// lis.style.color = 'pink'; // We can not do this.
+lis[0].style.color = 'purple'; // Has to be targeted directly.
+lis[0].textContent = 'li[0]'; // Has to be targeted directly.
 
-document.querySelector('li').style.color = 'red'; // Gets the first element (li)
-document.querySelector('ul li').style.color = 'purple'; // We can also nest (li)
-document.querySelector('li:last-child').style.color = 'pink'; // Gets the last child element (li)
-document.querySelector('li:nth-child(2)').style.color = 'orange'; // Gets the 2nd element (li)
-document.querySelector('li:nth-child(odd)').style.backgroundColor = 'lavender';
-document.querySelector('li:nth-child(even)').style.backgroundColor = '#ffefd1'; // Gets the 2nd element (li)
+// HTML COLLECTION -> Array
+let arr = [...lis];
+// arr = Array.from(lis);
 
-console.log(val);
+// Reverse array
+// Keep in mind, because we're using gEBTN, the node list here will also update.
+// Meaning arr will show same as arr.reverse()
+console.log(arr.reverse());
+
+// document.querySelectorAll
+const allItems = document.querySelectorAll('ul.collection li.collection-item');
+console.log(allItems)
+
+allItems.forEach((item, index) => {
+  item.textContent = (`#${index + 1} Hello`)
+})
+
+const liOdd = document.querySelectorAll('li:nth-child(odd)');
+const liEven = document.querySelectorAll('li:nth-child(even)');
+
+liOdd.forEach((item) => {
+  item.style.backgroundColor = (`lightgray`)
+})
