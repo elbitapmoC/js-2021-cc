@@ -1,30 +1,24 @@
-// Create an element(li)
-const li = document.createElement('li');
+// REPLACE ELEMENT
 
-// Add a class to above element
-li.className = 'collection-item';
+// create element(newHeading) -h4
 
-// Add an id (new-item)
-li.id = 'new-item';
+// Add id to newHeading
 
-// Add an attribute - ('title', 'New Item')
-li.setAttribute('title', 'new-item');
+// Create a new text node inside newHeading
 
-// Create text node and append it to the li
-li.appendChild(document.createTextNode('Helloooo Nurse!'));
+// Get the old heading
 
-// variable(link) to store a createElement (a)
-const link = document.createElement('a');
+// Parent(cardAction)
 
-// Add approprate classes to above link - 'delete-item secondary-content'
-link.className = 'delete-item secondary-content'
+// Replace oldHeading w/ newHeading inside parent
 
-// Add html ('<i class="fa fa-remove"></i>') to link
-link.innerHTML = '<i class="fa fa-remove"></i>';
+// Create variable to store all li's
 
-// Add link to li
-li.appendChild(link);
+// Create variable to store ul
 
-// Add li as a child to ul
-document.querySelector('ul.collection').appendChild(li);
-console.log(li)
+// Remove list item (any number)
+
+// Remove child element from list
+
+// CLASSES & ATTR
+console.log(newHeading)
