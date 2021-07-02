@@ -1,45 +1,46 @@
-let items;
-// items = document.getElementsByClassName('collection-item');
-// console.log(items);
-// console.log(items[0])
+let val;
+const list = document.querySelector('ul.collection');
+const listItem = document.querySelector('li.collection-item');
 
-// items[0].style.backgroundColor = 'pink';
-// items[3].textContent = 'pink';
+// Get child nodes
+val = list.childNodes; // Nodelist (11)
+val = list.childNodes[0];
+val = list.childNodes[0].nodeName; // #text
+val = list.childNodes[0].nodeType; // 3
 
-// const listOfItems = document.querySelector('ul').getElementsByClassName('collection-item'); // ul collection-item
-// console.log(listOfItems)
+// 1 - Element
+// 2 - Attribute
+// 3 - Text Node
+// 8 - Comment
+// 9 - Document
+// 10 - Doctype
 
-// gEBTN returns a live node list.
-// can be useful(you can query once, store the value, and have it update as the DOM changes)
-// Does same as above (line 2-4)
-let lis = document.getElementsByTagName('li');
-// console.log(lis);
-// console.log(lis[0]);
+// Get children elements
+val = list.children //HTMLCollection
 
-// lis.style.color = 'pink'; // We can not do this.
-lis[0].style.color = 'purple'; // Has to be targeted directly.
-lis[0].textContent = 'li[0]'; // Has to be targeted directly.
+// Get the id of a [0].[1]grandchild
+val = list.children[1].children[0].id
 
-// HTML COLLECTION -> Array
-let arr = [...lis];
-// arr = Array.from(lis);
+// First Child
+val = list.firstChild;
 
-// Reverse array
-// Keep in mind, because we're using gEBTN, the node list here will also update.
-// Meaning arr will show same as arr.reverse()
-console.log(arr.reverse());
+// Last Child
+val = list.lastChild
 
-// document.querySelectorAll
-const allItems = document.querySelectorAll('ul.collection li.collection-item');
-console.log(allItems)
+// Count Child elements
+val = list.childElementCount;
 
-allItems.forEach((item, index) => {
-  item.textContent = (`#${index + 1} Hello`)
-})
+// Get parent node
+val = list.parentNode
+// Get parent element
+val = list.parentElement
+// Get the grandparent (parent of a parent)
+val = list.parentElement.parentElement
 
-const liOdd = document.querySelectorAll('li:nth-child(odd)');
-const liEven = document.querySelectorAll('li:nth-child(even)');
-
-liOdd.forEach((item) => {
-  item.style.backgroundColor = (`lightgray`)
-})
+// Get next sibling
+val = list.nextSibling
+val = list.nextElementSibling
+// Get previous sibling
+val = list.previousSibling
+val = list.previousElementSibling
+console.log(val)
