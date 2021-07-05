@@ -1,12 +1,15 @@
+let val;
 // Primitive Data Types
 // --------------------
-const avatar = 'Johnny Applesed'
-console.log(typeof avatar); // String
-console.log(typeof 1)// Number
-console.log(typeof true)// Boolean
-console.log(typeof null)// Null
-console.log(typeof x) //undefined
-console.log(typeof Symbol()) //Symbol
+val = "ace";// String
+val = 11 //  Number
+val = true // Boolean
+val = null // Null
+val = undefined // undefined
+// val = Symbol('🔥').toString() // converts Symbol to String
+val = Symbol();
+console.log(`${typeof val} ${val} `)
+
 // --------------------
 
 // Reference Data Types - These are being accessed from memory AS a reference
@@ -36,7 +39,7 @@ const person = {
   state: 'Washington'
 }
 
-console.log(typeof person)
-console.log(Date());
-const y = new Date();
-console.log(typeof y);
+// console.log(typeof person)
+// console.log(Date());
+// const y = new Date();
+// console.log(typeof y);
