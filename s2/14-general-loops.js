@@ -1,4 +1,4 @@
-/ FOR LOOP
+// FOR LOOP
 // for (let index = 0; index < 100; index++) {
 //   if (index === 1) {
 //     console.log('Strive for de best!')
