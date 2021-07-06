@@ -2,6 +2,8 @@ const clearButton = document.querySelector('.clear-tasks');// Store clear tasks 
 const card = document.querySelector('.card');// Store Card
 const heading = document.querySelector('h5');// Store Tasks heading
 
+
+// -EVENT HANDLER(function)-
 function runEvent(e) {
   console.log(`Event Type: ${e.type}`);
   heading.textContent = `X: ${e.offsetX} Y:${e.offsetY}`;
@@ -28,5 +30,3 @@ card.addEventListener('mouseleave', runEvent);
 
 // Mouse move
 card.addEventListener('mousemove', runEvent);
-
-// -EVENT HANDLER-
