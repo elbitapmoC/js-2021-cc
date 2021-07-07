@@ -17,20 +17,25 @@
 document.querySelector('form').addEventListener('submit', addUserInput);
 
 function addUserInput(e) {
-  let userInput = document.getElementById('task').value; //Store user input
-
+  let tasks;
+  let task = document.getElementById('task').value; //Store user input
   // check local storage to see if there's any saved tasks
-  // if not, initialize an empty array
-  // otherwise add on to the current array
-  // will be stored as a string, so we will need to parse this string to JSON Object to use
+  if (localStorage.getItem('tasks') === null) {
+    tasks = []; //initialize an empty array since user has an empty task list.
+  } else {
+    // Append to tasks array.
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
 
-  // add user task to array of tasks
+  tasks.push(task); // Adding user input (task) into an array of tasks
 
-  // in local storage, set the tasks key to the array
-  // you will have to convert this json object to a string.
-
-  // lets double check, the things are correct...
-  // get what we just stored in local storage and display each task.
-
+  localStorage.setItem('tasks', JSON.stringify(tasks)); // Placing the new task entered into local storage.
+  task = '';
   e.preventDefault()
 }
+
+const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+tasks.forEach(task => {
+  console.log(task);
+});
