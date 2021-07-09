@@ -30,7 +30,6 @@ function addUserInput(e) {
   tasks.push(task); // Adding user input (task) into an array of tasks
 
   localStorage.setItem('tasks', JSON.stringify(tasks)); // Placing the new task entered into local storage.
-  task = '';
   e.preventDefault()
 }
 
