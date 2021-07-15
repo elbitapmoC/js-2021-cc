@@ -43,7 +43,7 @@ submitButton.addEventListener('click', () => {
   }
   else if (guess === winningNum) {
     updateMessage(`GOOD STUFF, ${winningNum} is the correct number!`, 'green');
-  } else updateMessage('Try again', 'red');
+  } else updateMessage(`${guess}...that won't do, Try again.`, 'red');
 })
 
 function updateMessage(alert, color) {
