@@ -9,3 +9,36 @@
   - List all their answers
 */
 
+// Get Values
+let min = 1,
+  max = 10,
+  recentlyPlayed = [],
+  winningNum,
+  guessesLeft = 3
+
+// UI Elements
+const game = document.getElementById('game'),
+  minNum = document.querySelector('.min-num'),
+  maxNum = document.querySelector('.max-num'),
+  guessInput = document.getElementById('guess-input'),
+  submitButton = document.getElementById('guess-submit'),
+  message = document.querySelector('.message');
+
+// Assign min and max
+minNum.textContent = min;
+maxNum.textContent = max;
+
+// Listen for submit
+submitButton.addEventListener('click', () => {
+
+  // console.log('guessInput.value'); // A String, we want this to be a number so we have to use the function: parseInt.
+  let guess = parseInt(guessInput.value);
+  if (isNaN(guess) || guess < min || guess > max) {
+    updateMessage(`Make sure your input is equal to or between ${min} and ${max}`, 'red');
+  }
+})
+
+function updateMessage(alert, color) {
+  message.style.color = color;
+  message.textContent = alert;
+}
