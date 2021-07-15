@@ -33,6 +33,15 @@ const game = document.getElementById('game'),
 minNum.textContent = min;
 maxNum.textContent = max;
 
+// Play again event listener
+game.addEventListener('mousedown', e => {
+  console.log(e.target);
+  if (e.target.className === 'play-again') {
+    //reload page
+    window.location.reload();
+  }
+})
+
 // Listen for submit
 submitButton.addEventListener('click', () => {
 
@@ -40,39 +49,41 @@ submitButton.addEventListener('click', () => {
   let guess = parseInt(guessInput.value);
   console.log(`winningNum: ${winningNum}`);
 
-  if (isNaN(guess) || guess < min || guess > max) {
-    updateMessage(`Make sure your input is equal to or between ${min} and ${max}`, 'red');
-  }
-  else if (guess === winningNum) {
-    updateMessage(`GOOD STUFF, ${winningNum} is the correct number!`, 'green');
-  } else {
+  if (isNaN(guess) || guess < min || guess > max) updateMessage(`Make sure your input is equal to or between ${min} and ${max}`, 'red');
+  else if (guess === winningNum) gameOver(true);
+  else {
     guessesLeft -= 1;
     // No More Guesses
-    if (guessesLeft === 0) {
-      updateMessage('Game Over... Better Luck next time around.', 'red');
-      gameResult(false);
-    }
+    if (guessesLeft === 0) gameOver(false);
     else {
       // Clear input
       guessInput.value = '';
-
       // More Guesses Left, Wrong Answer      
       updateMessage(`${guess}...that won't do, Try again.`, 'red');
     }
   }
 })
 
-function gameResult(won) {
-  if (!won) {
+function gameOver(win) {
+  if (win) {
     guessInput.disabled = true;
-    submitButton.disabled = true;
-    submitButton.style.opacity = .25;
-    submitButton.style.cursor = 'not-allowed';
+    updateMessage(`GOOD STUFF, ${winningNum} is the correct number!`, 'green');
   }
+  else if (!win) {
+    guessInput.disabled = true;
+    updateMessage('Game Over... Better Luck next time around.', 'red');
+  }
+  playAgain();
 }
 
 function updateMessage(alert, color) {
   guessInput.style.borderColor = color;
   message.style.color = color;
   message.textContent = alert;
+}
+
+function playAgain() {
+  guessInput.disabled = false;
+  submitButton.value = 'Play Again?';
+  submitButton.classList = 'play-again';
 }
