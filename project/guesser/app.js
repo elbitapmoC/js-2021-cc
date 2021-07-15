@@ -39,13 +39,37 @@ submitButton.addEventListener('click', () => {
   // console.log('guessInput.value'); // A String, we want this to be a number so we have to use the function: parseInt.
   let guess = parseInt(guessInput.value);
   console.log(`winningNum: ${winningNum}`);
+
   if (isNaN(guess) || guess < min || guess > max) {
     updateMessage(`Make sure your input is equal to or between ${min} and ${max}`, 'red');
   }
   else if (guess === winningNum) {
     updateMessage(`GOOD STUFF, ${winningNum} is the correct number!`, 'green');
-  } else updateMessage(`${guess}...that won't do, Try again.`, 'red');
+  } else {
+    guessesLeft -= 1;
+    // No More Guesses
+    if (guessesLeft === 0) {
+      updateMessage('Game Over... Better Luck next time around.', 'red');
+      gameResult(false);
+    }
+    else {
+      // Clear input
+      guessInput.value = '';
+
+      // More Guesses Left, Wrong Answer      
+      updateMessage(`${guess}...that won't do, Try again.`, 'red');
+    }
+  }
 })
+
+function gameResult(won) {
+  if (!won) {
+    guessInput.disabled = true;
+    submitButton.disabled = true;
+    submitButton.style.opacity = .25;
+    submitButton.style.cursor = 'not-allowed';
+  }
+}
 
 function updateMessage(alert, color) {
   guessInput.style.borderColor = color;
