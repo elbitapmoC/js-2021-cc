@@ -17,7 +17,8 @@ let min = 1,
   guessesLeft = 3;
 
 function getRandomInt() {
-  return Math.floor(Math.random() * max) + min;
+  return (Math.random() * (max - min + 1)) << 0
+  // return Math.floor(Math.random() * max) + min;
 }
 
 // UI Elements
