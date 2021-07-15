@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
     integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css">
   <title>Number Guesser</title>
 </head>
 
@@ -16,13 +15,12 @@
   <div class="container">
     <h1>Number Guesser</h1>
     <div id="game">
-      <p>Guess a number between <span class="min-num">1</span> and <span class="max-num">10</span></p>
-      <input type="number">
-      <input type="submit" value="submit">
+      <p>Guess a number between <span class="min-num"></span> and <span class="max-num"></span></p>
+      <input type="number" id="guess-input">
+      <input type="submit" value="submit" id="guess-submit">
       <p class="message"></p>
     </div>
   </div>
-  <canvas id="canvas"></canvas>
   <script src="./app.js"></script>
 </body>
 
