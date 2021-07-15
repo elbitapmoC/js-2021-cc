@@ -42,7 +42,7 @@ submitButton.addEventListener('click', () => {
     updateMessage(`Make sure your input is equal to or between ${min} and ${max}`, 'red');
   }
   else if (guess === winningNum) {
-    updateMessage('Correct!', 'green');
+    updateMessage(`GOOD STUFF, ${winningNum} is the correct number!`, 'green');
   } else updateMessage('Try again', 'red');
 })
 
