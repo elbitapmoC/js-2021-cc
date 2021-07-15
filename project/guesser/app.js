@@ -13,8 +13,12 @@
 let min = 1,
   max = 10,
   recentlyPlayed = [],
-  winningNum,
-  guessesLeft = 3
+  winningNum = getRandomInt(),
+  guessesLeft = 3;
+
+function getRandomInt() {
+  return Math.round(Math.random() * max) + min;
+}
 
 // UI Elements
 const game = document.getElementById('game'),
@@ -33,12 +37,17 @@ submitButton.addEventListener('click', () => {
 
   // console.log('guessInput.value'); // A String, we want this to be a number so we have to use the function: parseInt.
   let guess = parseInt(guessInput.value);
+  console.log(`winningNum: ${winningNum}`);
   if (isNaN(guess) || guess < min || guess > max) {
     updateMessage(`Make sure your input is equal to or between ${min} and ${max}`, 'red');
   }
+  else if (guess === winningNum) {
+    updateMessage('Correct!', 'green');
+  } else updateMessage('Try again', 'red');
 })
 
 function updateMessage(alert, color) {
+  guessInput.style.borderColor = color;
   message.style.color = color;
   message.textContent = alert;
 }
