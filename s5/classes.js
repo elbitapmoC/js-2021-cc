@@ -22,7 +22,21 @@ class User {
   }
 }
 
+// Inheritance
+class Admin extends User {
+  deleteUser(user) {
+    currentUsers = currentUsers.filter(u => {
+      return u.email != user.email
+    })
+  }
+}
+
 let userOne = new User('uno@ace.com', 'Ventura');
 let userTwo = new User('dos@eagle.com', 'Hawkeye');
+let adminOne = new Admin('me@admin.com', 'X');
 
 userOne.login().updateFruitsEatten().updateFruitsEatten().logout();
+let currentUsers = [userOne, userTwo, adminOne];
+adminOne.deleteUser(userOne);
+
+console.log(currentUsers);
