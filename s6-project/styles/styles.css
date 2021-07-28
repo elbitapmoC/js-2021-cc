@@ -1,0 +1,13 @@
+.success, .error{
+  color: white;
+  padding: 5px;
+  margin: 5px 0 15px 0;
+}
+
+.success{
+  background-color: rgb(1, 119, 50);
+}
+
+.error{
+  background-color: rgb(119, 1, 1);
+}
