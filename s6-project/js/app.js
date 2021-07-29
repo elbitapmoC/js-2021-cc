@@ -34,6 +34,17 @@ UI.prototype.clearInput = function () {
     document.getElementById('isbn').value = '';
 }
 
+UI.prototype.showAlert = function (message, className) {
+  //Create a div
+  const div = document.createElement('div');
+  // Add classes
+  div.className = `alert ${className}`
+  // Add text
+  div.appendChild(document.createTextNode(message));
+  // Get parent
+  const container = document.querySelector('.container')
+}
+
 document.getElementById('book-form').addEventListener('submit', (e) => {
   // Get form values
   let title = document.getElementById('title').value,
@@ -43,7 +54,7 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
   const book = new Book(title, author, isbn)
   const ui = new UI()
   if (title === '' || author === '' || isbn === '') {
-
+    ui.showAlert('...You left something empty, go back to check those input fields.', 'error');
   } else {
     ui.addBookToList(book);
     ui.clearInput();
