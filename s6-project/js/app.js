@@ -13,49 +13,49 @@ class UI {
   constructor() {
 
   }
-  addBookToList(book) {
-    const bookList = document.getElementById('book-list');
-    const row = document.createElement('tr');
-    row.innerHTML = `
+}
+
+UI.prototype.addBookToList = function (book) {
+  const bookList = document.getElementById('book-list');
+  const row = document.createElement('tr');
+  row.innerHTML = `
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.isbn}</td>
     <td><a href="" class="delete">X</a></td>
   `;
-    bookList.appendChild(row);
-    console.log(`Adding ${book.title} to book list`);
-  }
-
-  clearInput() {
-    document.getElementById('title').value = '',
-      document.getElementById('author').value = '',
-      document.getElementById('isbn').value = '';
-  }
-
-  showAlert(message, className) {
-    //Create a div
-    const div = document.createElement('div');
-    // Add classes
-    div.className = `alert ${className}`
-    // Add text
-    div.appendChild(document.createTextNode(message));
-    // Get parent
-    const container = document.querySelector('.container')
-    const form = document.getElementById('book-form')
-    container.insertBefore(div, form)
-
-    setTimeout(() => {
-      document.querySelector('.alert').remove()
-    }, 3000);
-  }
-
-  deleteBook(target) {
-    if (target.className === 'delete') {
-      target.parentElement.parentElement.remove();
-    }
-  }
+  bookList.appendChild(row);
+  console.log(`Adding ${book.title} to book list`);
 }
 
+UI.prototype.clearInput = function () {
+  document.getElementById('title').value = '',
+    document.getElementById('author').value = '',
+    document.getElementById('isbn').value = '';
+}
+
+UI.prototype.showAlert = function (message, className) {
+  //Create a div
+  const div = document.createElement('div');
+  // Add classes
+  div.className = `alert ${className}`
+  // Add text
+  div.appendChild(document.createTextNode(message));
+  // Get parent
+  const container = document.querySelector('.container')
+  const form = document.getElementById('book-form')
+  container.insertBefore(div, form)
+
+  setTimeout(() => {
+    document.querySelector('.alert').remove()
+  }, 3000);
+}
+
+UI.prototype.deleteBook = function (target) {
+  if (target.className === 'delete') {
+    target.parentElement.parentElement.remove();
+  }
+}
 
 // Adding event listener to submit
 document.getElementById('book-form').addEventListener('submit', (e) => {
