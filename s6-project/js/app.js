@@ -13,38 +13,51 @@ class UI {
   constructor() {
 
   }
-}
-
-UI.prototype.addBookToList = function (book) {
-  const bookList = document.getElementById('book-list');
-  const row = document.createElement('tr');
-  row.innerHTML = `
+  addBookToList(book) {
+    const bookList = document.getElementById('book-list');
+    const row = document.createElement('tr');
+    row.innerHTML = `
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.isbn}</td>
     <td><a href="" class="delete">X</a></td>
   `;
-  bookList.appendChild(row);
-  console.log(`Adding ${book.title} to book list`);
+    bookList.appendChild(row);
+    console.log(`Adding ${book.title} to book list`);
+  }
+
+  clearInput() {
+    document.getElementById('title').value = '',
+      document.getElementById('author').value = '',
+      document.getElementById('isbn').value = '';
+  }
+
+  showAlert(message, className) {
+    //Create a div
+    const div = document.createElement('div');
+    // Add classes
+    div.className = `alert ${className}`
+    // Add text
+    div.appendChild(document.createTextNode(message));
+    // Get parent
+    const container = document.querySelector('.container')
+    const form = document.getElementById('book-form')
+    container.insertBefore(div, form)
+
+    setTimeout(() => {
+      document.querySelector('.alert').remove()
+    }, 3000);
+  }
+
+  deleteBook(target) {
+    if (target.className === 'delete') {
+      target.parentElement.parentElement.remove();
+    }
+  }
 }
 
-UI.prototype.clearInput = function () {
-  document.getElementById('title').value = '',
-    document.getElementById('author').value = '',
-    document.getElementById('isbn').value = '';
-}
 
-UI.prototype.showAlert = function (message, className) {
-  //Create a div
-  const div = document.createElement('div');
-  // Add classes
-  div.className = `alert ${className}`
-  // Add text
-  div.appendChild(document.createTextNode(message));
-  // Get parent
-  const container = document.querySelector('.container')
-}
-
+// Adding event listener to submit
 document.getElementById('book-form').addEventListener('submit', (e) => {
   // Get form values
   let title = document.getElementById('title').value,
@@ -56,8 +69,20 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
   if (title === '' || author === '' || isbn === '') {
     ui.showAlert('...You left something empty, go back to check those input fields.', 'error');
   } else {
+    ui.showAlert('Book added!', 'success');
     ui.addBookToList(book);
     ui.clearInput();
   }
+  e.preventDefault();
+})
+
+// Adding event listener to delete
+document.getElementById('book-list').addEventListener('click', (e) => {
+  // Instantiate UI
+  const ui = new UI()
+  console.log(ui);
+  // Delete
+  ui.deleteBook(e.target);
+  ui.showAlert('Book removed!', 'success')
   e.preventDefault();
 })
