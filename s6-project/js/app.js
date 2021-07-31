@@ -56,7 +56,6 @@ class UI {
   }
 }
 
-
 // Adding event listener to submit
 document.getElementById('book-form').addEventListener('submit', (e) => {
   // Get form values
