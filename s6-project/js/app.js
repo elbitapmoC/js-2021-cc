@@ -1,65 +1,87 @@
-// Add event listener to submit button
-document.getElementById('loan-form').addEventListener('submit', e => {
-  document.getElementById('results').style.display = 'none';
-  document.getElementById('loading').style.display = 'block';
-  setTimeout(calculateResults, 2000);
+// Book Constructor
+//Book accepts title, author and isbn.
+class Book {
+  constructor(title, author, isbn) {
+    this.title = title;
+    this.author = author;
+    this.isbn = isbn
+  }
+}
+
+// UI Constructor
+class UI {
+  constructor() {
+
+  }
+  addBookToList(book) {
+    const bookList = document.getElementById('book-list');
+    const row = document.createElement('tr');
+    row.innerHTML = `
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td>${book.isbn}</td>
+    <td><a href="" class="delete">X</a></td>
+  `;
+    bookList.appendChild(row);
+    console.log(`Adding ${book.title} to book list`);
+  }
+
+  clearInput() {
+    document.getElementById('title').value = '',
+      document.getElementById('author').value = '',
+      document.getElementById('isbn').value = '';
+  }
+
+  showAlert(message, className) {
+    //Create a div
+    const div = document.createElement('div');
+    // Add classes
+    div.className = `alert ${className}`
+    // Add text
+    div.appendChild(document.createTextNode(message));
+    // Get parent
+    const container = document.querySelector('.container')
+    const form = document.getElementById('book-form')
+    container.insertBefore(div, form)
+
+    setTimeout(() => {
+      document.querySelector('.alert').remove()
+    }, 3000);
+  }
+
+  deleteBook(target) {
+    if (target.className === 'delete') {
+      target.parentElement.parentElement.remove();
+    }
+  }
+}
+
+// Adding event listener to submit
+document.getElementById('book-form').addEventListener('submit', (e) => {
+  // Get form values
+  let title = document.getElementById('title').value,
+    author = document.getElementById('author').value,
+    isbn = document.getElementById('isbn').value;
+
+  const book = new Book(title, author, isbn)
+  const ui = new UI()
+  if (title === '' || author === '' || isbn === '') {
+    ui.showAlert('...You left something empty, go back to check those input fields.', 'error');
+  } else {
+    ui.showAlert('Book added!', 'success');
+    ui.addBookToList(book);
+    ui.clearInput();
+  }
   e.preventDefault();
-});
+})
 
-// Hide results
-
-// Show loader
-
-// Calculate Results
-function calculateResults() {
-  // UI VARS
-  const amount = document.getElementById('amount'); // Amount
-  const interest = document.getElementById('interest'); // Interests
-  const years = document.getElementById('years'); // Years
-  const monthlyPayment = document.getElementById('monthly-payments'); // Monthly Payments
-  const totalPayment = document.getElementById('total-payment');// Total Payments
-  const totalInterest = document.getElementById('total-interest');// Total Interest
-
-  const principal = parseFloat(amount.value);
-  const calculateInterest = parseFloat(interest.value) / 100 / 12;
-  const calculatedPayments = parseFloat(years.value) * 12
-
-  // Compute monthly payments
-  const x = Math.pow(1 + calculateInterest, calculatedPayments);
-  const monthly = (principal * x * calculateInterest) / (x - 1);
-  if (isFinite(monthly)) {
-    monthlyPayment.value = monthly.toFixed(2);
-    totalPayment.value = (monthly * calculatedPayments).toFixed(2);
-    totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
-    document.getElementById('results').style.display = 'block';
-    document.getElementById('loading').style.display = 'none';
-
-  } else showError('Check your numbers.');
-}
-
-function showError(error) {
-  // create div
-  const errorDiv = document.createElement('div');
-
-  // get elements
-  const card = document.querySelector('.card');// .card
-  const heading = document.querySelector('.heading')// .heading
-
-  errorDiv.classList.add('alert', 'alert-danger'); // add class (alert alert-danger)
-  // card.classList = 'alert', 'alert-danger'; // does same thing as above
-
-  // create a text node and append to errorDiv
-  errorDiv.appendChild(document.createTextNode(error));
-
-  // insert error before heading
-  card.insertBefore(errorDiv, heading);
-
-  setTimeout(() => {
-    clearError();
-  }, 2000);
-}
-
-function clearError() {
-  document.querySelector('.alert').remove();
-  document.getElementById('loading').style.display = 'none';
-}
+// Adding event listener to delete
+document.getElementById('book-list').addEventListener('click', (e) => {
+  // Instantiate UI
+  const ui = new UI()
+  console.log(ui);
+  // Delete
+  ui.deleteBook(e.target);
+  ui.showAlert('Book removed!', 'success')
+  e.preventDefault();
+})
