@@ -1,0 +1,38 @@
+[
+  {
+    "firstName": "James",
+    "lastName": "Butterburg",
+    "phoneNumber": "777-777-7777",
+    "address": {
+      "street": "6649 N Blue Gum St",
+      "city": "New Orleans",
+      "state": "LA",
+      "zip": "70116"
+    },
+    "id": 0
+  },
+  {
+    "firstName": "Josephine",
+    "lastName": "Darakjy",
+    "phoneNumber": "555-555-5555",
+    "address": {
+      "street": "4 B Blue Ridge Blvd",
+      "city": "Brighton",
+      "state": "MI",
+      "zip": "48116"
+    },
+    "id": 1
+  },
+  {
+    "firstName": "Art",
+    "lastName": "Chemel",
+    "phoneNumber": "333-333-3333",
+    "address": {
+      "street": "8 W Cerritos Ave #54",
+      "city": "Bridgeport",
+      "state": "NJ",
+      "zip": "08014"
+    },
+    "id": 2
+  }
+]
