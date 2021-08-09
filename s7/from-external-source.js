@@ -1,3 +1,9 @@
+// API ENDPOINTS
+// GET
+// POST
+// PUT
+// DELETE
+
 document.getElementById('generate-random-verse').addEventListener('click', getScripture)
 document.addEventListener("DOMContentLoaded", function () {
   getScripture();
