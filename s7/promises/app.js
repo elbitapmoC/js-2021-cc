@@ -30,6 +30,8 @@ function getPosts() {
   }, 1000);
 }
 
-createPosts({ title: 'Title 3', body: 'Post 3' }).then(getPosts).catch();
+createPosts({ title: 'Title 3', body: 'Post 3' }).then(getPosts).catch(err => {
+  console.log(err);
+});
 
 console.log(posts);
