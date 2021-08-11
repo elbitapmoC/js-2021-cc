@@ -48,6 +48,7 @@ function getExternalApiData() {
       });
       document.getElementById('output').innerHTML = output;
     })
+    // Instead of doing this here, look at how to handle errors w/ fetch-- seems like it's best to create a separate function for this.
     .catch(err => {
       console.log(err);
     })
