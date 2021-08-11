@@ -5,7 +5,6 @@ document.getElementById('get-json').addEventListener('click', getJSON)
 function getText() {
   fetch('test.txt')
     .then((res) => {
-      // console.log(res); // 200
       return res.text();
     })
     .then(data => {
@@ -31,6 +30,6 @@ function getJSON() {
       document.getElementById('output').innerHTML = output;
     })
     .catch(err => {
-      console.log(err);
+      console.log(err); //If we didn't have this, the error message will say uncaught
     })
 }
