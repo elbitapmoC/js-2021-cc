@@ -36,15 +36,15 @@ function getJSON() {
 }
 
 // Get Local JSON data
-function getJSON() {
-  fetch('posts.json')
+function getExternalApiData() {
+  fetch('https://api.github.com/users')
     .then(res => {
       return res.json();
     })
     .then(data => {
       let output = ''
-      data.forEach(post => {
-        output += `<li>${post.title}</li>`
+      data.forEach(user => {
+        output += `<li>${user.login}</li>`
       });
       document.getElementById('output').innerHTML = output;
     })
