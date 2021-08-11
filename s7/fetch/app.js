@@ -37,10 +37,12 @@ function getJSON() {
 
 // Get Local JSON data
 function getExternalApiData() {
+  console.log('external');
   fetch('https://api.github.com/users')
     .then(res => {
       return res.json();
     })
+    // .then(handleErrors)
     .then(data => {
       let output = ''
       data.forEach(user => {
@@ -48,8 +50,10 @@ function getExternalApiData() {
       });
       document.getElementById('output').innerHTML = output;
     })
-    // Instead of doing this here, look at how to handle errors w/ fetch-- seems like it's best to create a separate function for this.
-    .catch(err => {
-      console.log(err);
-    })
+    .catch(err => console.log(err));
+}
+
+function handleErrors(res) {
+  if (!res.ok) throw new Error(res.error);
+  return res;
 }
