@@ -1,5 +1,6 @@
 document.getElementById('get-text').addEventListener('click', getText)
 document.getElementById('get-json').addEventListener('click', getJSON)
+document.getElementById('get-api').addEventListener('click', getExternalApiData)
 
 // Get local Text file.
 function getText() {
@@ -31,5 +32,23 @@ function getJSON() {
     })
     .catch(err => {
       console.log(err); //If we didn't have this, the error message will say uncaught
+    })
+}
+
+// Get Local JSON data
+function getJSON() {
+  fetch('posts.json')
+    .then(res => {
+      return res.json();
+    })
+    .then(data => {
+      let output = ''
+      data.forEach(post => {
+        output += `<li>${post.title}</li>`
+      });
+      document.getElementById('output').innerHTML = output;
+    })
+    .catch(err => {
+      console.log(err);
     })
 }
