@@ -5,9 +5,7 @@ document.getElementById('get-api').addEventListener('click', getExternalApiData)
 // Get local Text file.
 function getText() {
   fetch('test.txt')
-    .then((res) => {
-      return res.text();
-    })
+    .then(res => res.text())
     .then(data => {
       console.log(data);
       document.getElementById('output').innerHTML = `<aside>${data}</aside>`
@@ -20,9 +18,7 @@ function getText() {
 // Get Local JSON data
 function getJSON() {
   fetch('posts.json')
-    .then(res => {
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
       let output = ''
       data.forEach(post => {
@@ -39,10 +35,7 @@ function getJSON() {
 function getExternalApiData() {
   console.log('external');
   fetch('https://api.github.com/users')
-    .then(res => {
-      return res.json();
-    })
-    // .then(handleErrors)
+    .then(res => res.json())
     .then(data => {
       let output = ''
       data.forEach(user => {
@@ -51,9 +44,4 @@ function getExternalApiData() {
       document.getElementById('output').innerHTML = output;
     })
     .catch(err => console.log(err));
-}
-
-function handleErrors(res) {
-  if (!res.ok) throw new Error(res.error);
-  return res;
 }
