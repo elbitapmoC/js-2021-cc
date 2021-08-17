@@ -4,6 +4,8 @@ class UI {
   }
 
   showProfile(user) {
+    this.clearAlert(); // clear any remaining alerts
+
     this.profile.innerHTML = `
       <div class="card card-body md-3">
         <div class="row">
@@ -29,7 +31,39 @@ class UI {
     `
   }
 
+  showRepos(userRepos) {
+    console.log(userRepos);
+  }
+
   clearInput() {
     this.profile.innerHTML = '';
+  }
+
+  clearAlert() {
+    const alert = document.querySelector('.alert')
+    if (alert) {
+      alert.remove()
+    }
+  }
+
+  showAlert(message, className) {
+    this.clearAlert(); // clear any remaining alerts
+
+    // Create div
+    const div = document.createElement('div');
+    // Add classes
+    div.className = className;
+    // Append text to div
+    div.appendChild(document.createTextNode(message));
+    // Get parent (searchContainer)
+    const container = document.querySelector('.searchContainer');
+    // Get search box
+    const search = document.querySelector('.search')
+    // Insert alert before search
+    container.insertBefore(div, search);
+
+    setTimeout(() => {
+      this.clearAlert()
+    }, 3000);
   }
 }

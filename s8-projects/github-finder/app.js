@@ -13,9 +13,10 @@ searchUser.addEventListener('keyup', e => {
       .then(data => {
         if (data.profile.message === 'Not Found') {
           // Show Alert
-          ui.clearInput();
+          ui.showAlert("User Does Not Exist", 'alert alert-danger');
         } else {
           ui.showProfile(data.profile);
+          ui.showRepos(data.profile.repos_url);
         }
       })
   } else {
