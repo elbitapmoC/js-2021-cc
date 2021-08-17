@@ -28,4 +28,8 @@ class UI {
       </div>
     `
   }
+
+  clearInput() {
+    this.profile.innerHTML = '';
+  }
 }

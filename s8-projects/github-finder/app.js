@@ -13,11 +13,12 @@ searchUser.addEventListener('keyup', e => {
       .then(data => {
         if (data.profile.message === 'Not Found') {
           // Show Alert
+          ui.clearInput();
         } else {
           ui.showProfile(data.profile);
         }
       })
   } else {
-    // Clear profile
+    ui.clearInput();
   }
 });
