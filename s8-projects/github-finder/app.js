@@ -16,7 +16,7 @@ searchUser.addEventListener('keyup', e => {
           ui.showAlert("User Does Not Exist", 'alert alert-danger');
         } else {
           ui.showProfile(data.profile);
-          ui.showRepos(data.profile.repos_url);
+          ui.showRepos(data.repos);
         }
       })
   } else {
